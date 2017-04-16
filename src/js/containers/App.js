@@ -1,37 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import Main from '../components/Main';
-import User from '../components/User';
-
-import { changeName } from '../actions/userActions.js';
-
+import GamesPage from './GamesPage';
 
 class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <Main changeName={() => this.props.changeName('Jason Lee')}/>
-                <User username={this.props.user.name}/>
-            </div>
+            <Router>
+                <div>
+                    <h1>React App</h1>
+                    <Link to="/games">Games</Link>
+                    <Route path="/games" component={GamesPage} />
+                </div>
+            </Router>
         );
     }
+
 }
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.userReducer,
-        math: state.mathReducer
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        changeName: (name) => {
-            dispatch(changeName(name));
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

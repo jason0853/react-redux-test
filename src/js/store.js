@@ -1,39 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-import mathReducer from './reducers/mathReducer';
-import userReducer from './reducers/userReducer';
 
-const store =  createStore(
+import gameReducers from './reducers/gameReducers';
+
+const store = createStore(
     combineReducers({
-        mathReducer,
-        userReducer
+        games: gameReducers,
     }),
-    applyMiddleware(logger)
+    composeWithDevTools(
+        applyMiddleware(logger, thunk)
+    ),
 );
 
 export default store;
-
-// store.subscribe(() => {
-//     // console.log(store.getState());
-// });
-
-// store.dispatch({
-//     type: 'ADD',
-//     payload: 100
-// });
-//
-// store.dispatch({
-//     type: 'SUBTRACT',
-//     payload: 50
-// });
-//
-// store.dispatch({
-//     type: 'CHANGE_USER',
-//     payload: 'Jason Lee'
-// });
-//
-// store.dispatch({
-//     type: 'CHANGE_JOB',
-//     payload: 'Full-stack engineer'
-// });
