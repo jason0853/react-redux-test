@@ -1,10 +1,12 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
-const app = express();
+import users from './routes/users';
+
+let app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello');
-});
+app.use(bodyParser.json());
+app.use('/api/users', users);
 
 app.listen(port, () => console.log('Server is running on port ' + port));
