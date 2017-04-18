@@ -1,13 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+// import { BroswerRouter as Router } from 'react-router-dom';
 
-import App from './containers/App';
-import store from './store';
+// import App from './containers/App';
+
+import Routes from './routes/Routes';
 
 render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <Routes />,
     document.getElementById('app')
 );
