@@ -4,12 +4,11 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
-import userReducer from './reducers/userReducer';
-
+import flashMessagesReducer from './reducers/flashMessagesReducer';
 
 const store = createStore(
     combineReducers({
-        user: userReducer
+        flashMessage: flashMessagesReducer
     }),
     composeWithDevTools(
         applyMiddleware(logger, thunk, promise())

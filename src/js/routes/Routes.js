@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavigationBar from '../components/NavigationBar';
+import FlashMessagesList from '../containers/flash/FlashMessagesList';
 import App from '../containers/App';
 import SignupPage from '../containers/signup/SignupPage';
 
@@ -10,6 +11,7 @@ const Routes = () => {
         <Router>
             <div className="container">
                 <NavigationBar />
+                <FlashMessagesList />
                 <Route exact path="/" component={App} />
                 <Route path="/signup" component={SignupPage} />
             </div>
