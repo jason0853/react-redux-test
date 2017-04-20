@@ -5,6 +5,7 @@ import NavigationBar from '../components/NavigationBar';
 import FlashMessagesList from '../containers/flash/FlashMessagesList';
 import App from '../containers/App';
 import SignupPage from '../containers/signup/SignupPage';
+import LoginPage from '../containers/login/LoginPage'
 
 const Routes = () => {
     return (
@@ -14,6 +15,7 @@ const Routes = () => {
                 <FlashMessagesList />
                 <Route exact path="/" component={App} />
                 <Route path="/signup" component={SignupPage} />
+                <Route path="/login" component={LoginPage} />
             </div>
         </Router>
     );

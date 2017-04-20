@@ -5,10 +5,12 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
 import flashMessagesReducer from './reducers/flashMessagesReducer';
+import authReducer from './reducers/authReducer';
 
 const store = createStore(
     combineReducers({
-        flashMessage: flashMessagesReducer
+        flashMessage: flashMessagesReducer,
+        auth: authReducer
     }),
     composeWithDevTools(
         applyMiddleware(logger, thunk, promise())

@@ -50,5 +50,9 @@ module.exports = {
             template: 'src/index.html'
         }),
         new CleanWebpackPlugin(['dist'])
-    ]
+    ],
+    node: {
+        net: 'empty',
+        dns: 'empty'
+    }
 }
